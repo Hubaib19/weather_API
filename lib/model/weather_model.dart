@@ -1,24 +1,24 @@
 class Weather {
   String? cityName;
   double? temp;
-  double? wind;
+  double? temp_min;
   int? humidity;
-  double? feels_like;
-  int? pressure;
+  double? wind;
+  int? temp_max;
   Weather(
       {this.cityName,
       this.temp,
-      this.wind,
+      this.temp_min,
       this.humidity,
-      this.feels_like,
-      this.pressure});
+      this.wind,
+      this.temp_max});
 
   Weather.fromJson(Map<String, dynamic> json) {
     cityName = json['name'];
     temp = json["main"]["temp"];
-    wind = json["wind"]["speed"];
-    pressure = json["main"]["pressure"];
+    temp_min = json["main"]["temp_min"];
+    temp_max = json["main"]["temp_max"];
     humidity = json["main"]["humidity"];
-    feels_like = json["main"]["feels_like"];
+    wind = json["wind"]["speed"];
   }
 }

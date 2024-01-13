@@ -159,15 +159,81 @@ class _HomeScreenState extends State<HomeScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              temperature(value,
-                                  text: 'Wind',
-                                  imagePath: 'asset/Cold (2).png'),
+                              Container(
+                                  child: Row(
+                                children: [
+                                  Image.asset(
+                                    'asset/Cold (2).png',
+                                    height: 70,
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        'Wind',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      if (value.data != null)
+                                        Text(
+                                          '${value.data!.temp_min}',
+                                          style: const TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                ],
+                              )),
                               const SizedBox(
                                 width: 30,
                               ),
-                              temperature(value,
-                                  text: 'Pressure',
-                                  imagePath: 'asset/Heat.png'),
+                              Container(
+                                  child: Row(
+                                children: [
+                                  Image.asset(
+                                    'asset/Heat.png',
+                                    height: 70,
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        'Pressure',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      if (value.data != null)
+                                        Text(
+                                          '${value.data!.temp_max}',
+                                          style: const TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                ],
+                              )),
                             ],
                           ),
                           const Divider(
@@ -178,15 +244,81 @@ class _HomeScreenState extends State<HomeScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              temperature(value,
-                                  text: 'Sunny',
-                                  imagePath: 'asset/sunny.png'),
+                              Container(
+                                  child: Row(
+                                children: [
+                                  Image.asset(
+                                    'asset/sunny.png',
+                                    height: 70,
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        'Sunny',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      if (value.data != null)
+                                        Text(
+                                          '${value.data!.humidity}',
+                                          style: const TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                ],
+                              )),
                               const SizedBox(
                                 width: 30,
                               ),
-                              temperature(value,
-                                  text: 'Real feal',
-                                  imagePath: 'asset/images-removebg-preview.png'),
+                              Container(
+                                  child: Row(
+                                children: [
+                                  Image.asset(
+                                    'asset/images-removebg-preview.png',
+                                    height: 70,
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        'Real feal',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      if (value.data != null)
+                                        Text(
+                                          '${value.data!.wind}',
+                                          style: const TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                ],
+                              )),
                             ],
                           ),
                         ],
@@ -200,44 +332,5 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
-  }
-
-  Container temperature(WeatherProvider value,
-      {required String text, required String imagePath}) {
-    return Container(
-        child: Row(
-      children: [
-        Image.asset(
-          imagePath,
-          height: 70,
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              text,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-             if (value.data != null)
-            Text(
-              '${value.data!.wind}',
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(
-          width: 10,
-        ),
-      ],
-    ));
   }
 }
