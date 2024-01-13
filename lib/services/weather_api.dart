@@ -9,6 +9,6 @@ class Service {
 
     var response = await http.get(endpoint);
     var body = jsonDecode(response.body);
-    return Weather.fromJson(body);
+    return  Weather.fromJson(body);
   }
 }

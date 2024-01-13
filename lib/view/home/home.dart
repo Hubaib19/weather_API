@@ -257,7 +257,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       const Text(
-                                        'Sunrise',
+                                        'Humidity',
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 14,
@@ -266,7 +266,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                       if (value.data != null)
                                         Text(
-                                          '${value.data!.sunrise}',
+                                          '${value.data!.humidity}',
                                           style: const TextStyle(
                                             color: Colors.black,
                                             fontSize: 14,
@@ -296,7 +296,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       const Text(
-                                        'Sunrise',
+                                        'Wind',
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 14,
@@ -305,7 +305,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                       if (value.data != null)
                                         Text(
-                                          '${value.data!.sunset}',
+                                          '${value.data!.wind}',
                                           style: const TextStyle(
                                             color: Colors.black,
                                             fontSize: 14,
