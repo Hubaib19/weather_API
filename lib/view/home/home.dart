@@ -172,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       const Text(
-                                        'Wind',
+                                        'Temp Min',
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 14,
@@ -211,7 +211,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       const Text(
-                                        'Pressure',
+                                        'Temp Max',
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 14,
@@ -257,7 +257,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       const Text(
-                                        'Sunny',
+                                        'Sunrise',
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 14,
@@ -266,7 +266,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                       if (value.data != null)
                                         Text(
-                                          '${value.data!.humidity}',
+                                          '${value.data!.sunrise}',
                                           style: const TextStyle(
                                             color: Colors.black,
                                             fontSize: 14,
@@ -296,7 +296,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       const Text(
-                                        'Real feal',
+                                        'Sunrise',
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 14,
@@ -305,7 +305,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                       if (value.data != null)
                                         Text(
-                                          '${value.data!.wind}',
+                                          '${value.data!.sunset}',
                                           style: const TextStyle(
                                             color: Colors.black,
                                             fontSize: 14,
