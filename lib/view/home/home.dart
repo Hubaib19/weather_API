@@ -4,14 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weatherapi/controller/weather_provider.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -159,81 +154,17 @@ class _HomeScreenState extends State<HomeScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Container(
-                                  child: Row(
-                                children: [
-                                  Image.asset(
-                                    'asset/Cold (2).png',
-                                    height: 70,
-                                  ),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const Text(
-                                        'Temp Min',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                      if (value.data != null)
-                                        Text(
-                                          '${value.data!.temp_min}',
-                                          style: const TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                ],
-                              )),
+                              climate(value,
+                                  text: 'Temp Min',
+                                  image: 'asset/Cold (2).png',
+                                  text2: '${value.data!.temp_min}'),
                               const SizedBox(
-                                width: 30,
+                                width: 10,
                               ),
-                              Container(
-                                  child: Row(
-                                children: [
-                                  Image.asset(
-                                    'asset/Heat.png',
-                                    height: 70,
-                                  ),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const Text(
-                                        'Temp Max',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                      if (value.data != null)
-                                        Text(
-                                          '${value.data!.temp_max}',
-                                          style: const TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                ],
-                              )),
+                              climate(value,
+                                  text: 'Temp Max',
+                                  image: 'asset/Heat.png',
+                                  text2: '${value.data!.temp_max}'),
                             ],
                           ),
                           const Divider(
@@ -244,81 +175,17 @@ class _HomeScreenState extends State<HomeScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Container(
-                                  child: Row(
-                                children: [
-                                  Image.asset(
-                                    'asset/sunny.png',
-                                    height: 70,
-                                  ),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const Text(
-                                        'Humidity',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                      if (value.data != null)
-                                        Text(
-                                          '${value.data!.humidity}',
-                                          style: const TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                ],
-                              )),
+                              climate(value,
+                                  text: 'Humidity',
+                                  image: 'asset/sunny.png',
+                                  text2: '${value.data!.humidity}'),
                               const SizedBox(
-                                width: 30,
+                                width: 10,
                               ),
-                              Container(
-                                  child: Row(
-                                children: [
-                                  Image.asset(
-                                    'asset/images-removebg-preview.png',
-                                    height: 70,
-                                  ),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const Text(
-                                        'Wind',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                      if (value.data != null)
-                                        Text(
-                                          '${value.data!.wind}',
-                                          style: const TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                ],
-                              )),
+                              climate(value,
+                                  text: 'Wind',
+                                  image: 'asset/images-removebg-preview.png',
+                                  text2: '${value.data!.wind}'),
                             ],
                           ),
                         ],
@@ -332,5 +199,44 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+  }
+
+  Container climate(WeatherProvider value,
+      {required String text, required String text2, required String image}) {
+    return Container(
+        child: Row(
+      children: [
+        Image.asset(
+          image,
+          height: 70,
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              text,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            if (value.data != null)
+              Text(
+                text2,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+          ],
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+      ],
+    ));
   }
 }

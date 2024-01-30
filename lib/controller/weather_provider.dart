@@ -19,8 +19,9 @@ class WeatherProvider extends ChangeNotifier {
 
     isLoading = false;
     notifyListeners();
+    return null;
+  
 
-    return data;
   }
 
 }
