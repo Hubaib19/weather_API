@@ -7,21 +7,17 @@ class WeatherProvider extends ChangeNotifier {
   bool isLoading = false;
   Weather? data;
 
-  WeatherProvider(){
+  WeatherProvider() {
     getData('kerala');
   }
 
   Future<Weather?> getData(String place) async {
     isLoading = true;
-    notifyListeners();
 
     data = await Service().getCurrentWeather(place);
 
     isLoading = false;
     notifyListeners();
     return null;
-  
-
   }
-
 }
